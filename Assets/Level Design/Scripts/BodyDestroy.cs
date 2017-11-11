@@ -11,10 +11,10 @@ public class BodyDestroy : MonoBehaviour {
     void Update()
     {
         transform.Find("BodyGuardHead");
-        if (!transform.find("BodyGuardHead"))
+        if (!transform.Find("BodyGuardHead"))
         {
             DeadBodyGuard = true;
-            GameObject.Find("ScoreDynamic").SendMessageUpwards("NewScore", PointValue, SendMessageOptions.DontRequireReciever);
+            GameObject.Find("ScoreDynamic").SendMessageUpwards("NewScore", PointValue, SendMessageOptions.DontRequireReceiver);
             Kill();
         }
     }
@@ -27,7 +27,7 @@ public class BodyDestroy : MonoBehaviour {
         }
         if (deadReplacement)
         {
-            Transform dead = Instatiate(deadReplacement, transform.position, transform.rotation);
+            Transform dead = Instantiate(deadReplacement, transform.position, transform.rotation);
         }
     }
 }
